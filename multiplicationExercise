@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class multiplicationExercise {
+
+	public static void main (String[] args){
+		
+		int mult=10, total=0;
+		System.out.println("Insert a number");
+		Scanner sc= new Scanner(System.in);
+		int number=sc.nextInt();//Conversión from STRING to INT
+		total=number*mult;
+    
+		System.out.println("Number * 10= "+total);
+		
+		
+	}
+}
