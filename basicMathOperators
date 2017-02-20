@@ -1,0 +1,98 @@
+public class basicMaths {
+
+	public static void main (String[] args){
+		
+		byte prueba_byte=120;
+		System.out.println("Positive numbers from 0 to 255.Example: "+prueba_byte);
+		short prueba_short=-3278;
+		System.out.println("Positive or negative numbers from -32.768 to 32.767.Example: "+prueba_short);
+		int prueba_int=1288;
+		System.out.println("Positive or negative numbers from  -2.147.483.648 to 2.147.483.647.Example: "+prueba_int);
+		long prueba_long=123131;
+		System.out.println("Positive or negative numbers from  -922337203685477508 to 922337203685477507.Example: "+prueba_long);
+		float prueba_float=33.2454564f;
+		System.out.println("Floats from -3,402823e38 to 3,402823e38.Example: "+prueba_float);
+		double prueba_double= 45.567786869696;
+		System.out.println("Floats from -1,79769313486232e308 to 1,79769313486232e308.Example: "+prueba_double);
+		char prueba_char='A';
+		System.out.println("Unicode characters.Example: "+prueba_char);
+		boolean prueba_boolean=true;
+		System.out.println("Booleans.Example: "+prueba_boolean);
+		String prueba_string="Hola Mundo!";
+		System.out.println("Strings.Example: "+prueba_string);
+		
+		//Mathematics operators
+		
+		int sum,res,mul,div,modu,uni1,uni2,uni3,uni5;
+		boolean maq,meq,ig,dis,maomeq,meomaq,maqR,meqR,igR,xor,uni4;
+		
+		//Basics
+		
+		//Sum
+		sum=12+3;
+		System.out.println("The result is: "+sum);
+		//Subtraction
+		res=5-4;
+		System.out.println("The result is: "+res);
+		//Multiplication
+		mul=3*23;
+		System.out.println("The result is: "+mul);
+		//Division
+		div=40/2;
+		System.out.println("The result is: "+div);
+		//Mod
+		modu=18%2;
+		System.out.println("The result is: "+modu);
+		
+		//Assigment
+		
+		sum+=2;
+		System.out.println("The result is: "+sum);// = sum+2
+		res-=4;
+		System.out.println("The result is: "+res);// = res-4
+		mul*=6;
+		System.out.println("The result is: "+mul);// = mul*6
+		div/=12;
+		System.out.println("The result is: "+div);// = div/12
+		
+		//Relational
+		
+		maq=sum>res;// checks if sum is bigger than res
+		System.out.println("The result is: "+maq);
+		meq=sum<res;// checks if sum is smaller than res
+		System.out.println("The result is: "+meq);
+		ig=sum==res;// checks if sum and res are equals
+		System.out.println("The result is: "+ig);
+		dis=sum!=res;// checks if sum and res are not equals
+		System.out.println("The result is: "+dis);
+		maomeq=sum>=res;// checks if sum is bigger or equal to res
+		System.out.println("The result is: "+maomeq);
+		meomaq=sum<=res;// checks if sum is smaller or equal to res
+		System.out.println("The result is: "+meomaq);
+		
+		//Logical operators
+		
+		maqR=maq&&meq;//returns true if both are true
+		System.out.println("The result is: "+maq);
+		meqR=maq||meq;//returns true if one or both are true
+		System.out.println("The result is: "+maq);
+		igR=!maq&&meq;//returns true if the result is false and false if is true
+		System.out.println("The result is: "+maq);
+		xor=maq^meq;//returns true if one variable is true and the other false
+		System.out.println("The result is: "+maq);
+		
+		//Operandores unitarios
+		
+		uni1=-sum;//change the sign
+		System.out.println("The result is: "+uni1);
+		uni2=--sum;//decrease of sum
+		System.out.println("The result is: "+uni2);
+		uni3=++sum;//increment of sum
+		System.out.println("The result is: "+uni3);
+		uni4=!maq;//Not maq
+		System.out.println("The result is: "+uni4);
+		uni5=~sum;//Mod of sum	
+		System.out.println("The result is: "+uni5);
+		
+	}
+}
