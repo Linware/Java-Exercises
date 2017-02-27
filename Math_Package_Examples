@@ -1,0 +1,28 @@
+package actividad02;
+import java.lang.Math;
+/**
+ *
+ * @author Jonan
+ */
+public class Actividad01 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        double value1,value2,value3,value4;
+        double x=12;
+ 
+    
+    value1=Math.sqrt(x);
+    System.out.println(value1);
+    value2=Math.sin(x);
+    System.out.println(value1);
+    value3=Math.cos(x);
+    System.out.println(value1);
+    value4=Math.tan(x);
+    System.out.println(value1);
+    }
+    
+}
