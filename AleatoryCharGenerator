@@ -1,0 +1,18 @@
+package ejercicioslibro;
+
+
+public class EjerciciosLibro {
+
+    
+    public static char generadorAleatorioLetras(){
+        
+        //Add the result of Math.random to the ASCII value of 'a' and return it like a char
+        
+        return (char) ((Math.random()*26)+'a'); 
+    }
+    public static void main(String[] args) {
+      
+        System.out.println(generadorAleatorioLetras());
+    }
+    
+}
