@@ -1,0 +1,39 @@
+package ejercicioslibro;
+import java.lang.Math;
+
+
+public class diferenciadorLetras{
+    
+// This is not the best way to do it but is an exercise to show how if,else if and else works,so...
+// Will be better to create a function or put all "else if" in one row using OR 
+
+    public static void main (String[] args){
+    
+        char valor1;
+        valor1=(char)(Math.random()*26+'a'); 
+        
+        if(valor1=='a'){
+        System.out.println("Es una vocal");
+        System.out.println(valor1);
+        }
+        else if(valor1=='e'){
+        System.out.println("Es una vocal");
+        System.out.println(valor1);
+        }
+        else if(valor1=='i'){
+        System.out.println("Es una vocal");
+        System.out.println(valor1);
+        }
+        else if(valor1=='o'){
+        System.out.println("Es una vocal");
+        System.out.println(valor1);
+        }
+        else if(valor1=='u'){
+        System.out.println("Es una vocal");
+        System.out.println(valor1);
+        }else{
+        System.out.println("Es una consonante");
+        System.out.println(valor1);}
+     
+    }
+}
