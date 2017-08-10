@@ -27,7 +27,9 @@ class GiveMeHour implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		Date now=new Date();
-		System.out.println("La hora actual es: "+now);
+		System.out.println("The hour is: "+now);
+		
+		Toolkit.getDefaultToolkit().beep();
 		
 	}
 	
