@@ -1,0 +1,34 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.Date;
+import javax.swing.Timer;
+
+public class TestTimer {
+
+	public static void main(String[] args) {
+		// Easy way to do a timer
+		
+		GiveMeHour listener=new GiveMeHour();
+		
+		Timer clock=new Timer(5000,listener);
+		
+		clock.start();
+		
+		JOptionPane.showMessageDialog(null, "Push to stop");
+		
+		System.exit(0);
+		
+	}
+
+}
+
+class GiveMeHour implements ActionListener {
+
+	public void actionPerformed(ActionEvent e) {
+		
+		Date now=new Date();
+		System.out.println("La hora actual es: "+now);
+		
+	}
+	
+}
