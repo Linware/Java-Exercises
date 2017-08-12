@@ -1,0 +1,31 @@
+
+import javax.swing.*;
+
+public class Frames {
+
+	public static void main(String[] args) {
+  
+		myFrame frame=new myFrame();
+		
+		frame.setVisible(true);
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+
+class myFrame extends JFrame{
+	
+	public myFrame(){
+		
+		//setSize(500,300);
+		
+		//setLocation(500,300);
+		
+		setBounds(500,300,250,250); //Do the same thing that the last to lines together
+		
+		setTitle("My Window"); // Set the title
+		
+	}
+}
