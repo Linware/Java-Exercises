@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-//Minuto 37:16
-
 class Tabla{
 	private int contador=1;
 
