@@ -15,10 +15,9 @@ import static testbdoo.OperacionesBancoBDOO.parseDate;
 public class TestBDOO {
 
     public static void main(String[] args) {
-
-       Scanner sn = new Scanner(System.in);
-       boolean salir = false;
-       int opcion; //Guardaremos la opcion del usuario
+        
+        boolean salir = false;
+ //Guardaremos la opcion del usuario
        //OperacionesBancoBDOO.listaCuentas();
        
        OperacionesBancoBDOO db=new OperacionesBancoBDOO();
@@ -74,9 +73,7 @@ public class TestBDOO {
         db.guardarHistorial(historial2);
         db.guardarHistorial(historial3);
         db.guardarHistorial(historial4);
-                
-
-                                        
+                              
         //db.cerrar();
        
         
@@ -84,13 +81,14 @@ public class TestBDOO {
             
            System.out.println("*********************************************************************");
            System.out.println("*********************************************************************");
-           System.out.println("1. Insertar cuenta nueva");
-           System.out.println("2. Validar usuario y contraseña");
+           System.out.println("0. Ver todas las cuentas"); //
+           System.out.println("1. Insertar cuenta nueva"); //
+           System.out.println("2. Validar usuario y contraseña"); //
            System.out.println("3. Modificar datos propietario (nombre,primer apellido y segundo apellido)"); 
            System.out.println("4. Cambiar número secreto");
            System.out.println("5. Eliminar cuenta bancaria");    
            System.out.println("6. Obtener cuenta en base al ID");
-           //System.out.println("7. Listar todas las cuentas"); //
+           System.out.println("7. Listar todas las cuentas"); //
            System.out.println("8. Insertar operación con todos sus campos");
            System.out.println("9. Listar cuentas en números rojos");
            System.out.println("10. Obtener todas las operaciones de una cuenta");
@@ -99,37 +97,59 @@ public class TestBDOO {
            System.out.println("13. Obtener posición de una cuenta en el ranking de números rojos");     
            System.out.println("---------------------------------------------------------------------");
            System.out.println("Escribe una de las opciones");
-           opcion = sn.nextInt();
+           
+            salir = false;      
+            boolean valorValido=false;
+            int opcion=0;
+            
+           while (valorValido!=true){
+           try{         
+               System.out.println("Escoge una opción: ");
+               Scanner sn = new Scanner(System.in);
+               opcion = sn.nextInt();
+               valorValido=true;
+           }catch(Exception e){
+                System.out.println("Por favor introduce un valor entero");
+           }
+           }
            System.out.println("*********************************************************************");
            System.out.println("*********************************************************************");
            
             switch(opcion){
-                case 1:
-                    db.insertarCuenta(new CuentasBancarias("222222","67854736C",300.0));
-                    break;
-                case 2:
-                    db.validarUsuario("BrianGoetzSTTTaez","557845");
-                    break;
-                case 3:
-                    db.actualizarCuenta("125436","85744736J",87995.12); //TERMINADO
-                    break;
-                case 4:
-                    db.obtenerTodosLosPropietarios();
-                    break;
-                case 5:
+                case 0:
+                    System.out.println("Mostrando todas las cuentas"); //TERMINADO
                     db.obtenerTodasLasCuentas();
                     break;
+                case 1:
+                    System.out.println("Insertando cuenta...");
+                    db.insertarCuenta(new CuentasBancarias("222222","67854736C",300.0)); //TERMINADO
+                    break;
+                case 2:
+                    System.out.println("Validando usuario...");
+                    db.validarUsuario("BrianGoetzSaez","557845"); //TERMINADO
+                    break;
+                case 3:
+                    System.out.println("Modificando datos de propietario...");
+                    db.modificarDatosPropietario("Jon","Galvez","Murua"); //TERMINADO
+                    break;
+                case 4:
+                    db.cambiarNumeroSecreto("67854736C"); //TERMINADO
+                    break;
+                case 5:
+                    db.eliminarCuenta("447756", "67111736Z",3546.34); //TERMINADO
+                    break;
                 case 6:
-                    db.actualizarCuenta("125436","85744736J",87995.12);
+                    db.obtenerCuentaPorId("012345"); //TERMINADO
                     break;
                 case 7:
                     db.obtenerTodasLasCuentas();  //TERMINADO
                     break;
                 case 8:
-                    db.obtenerTodasLasCuentas();
+                    Date dateTest=parseDate("2013-12-14");
+                    db.insertarOperacion(dateTest, "447756", 'I', 134.56); //TERMINADO
                     break;
                 case 9:
-                    db.actualizarCuenta("125436","85744736J",87995.12);
+                    db.listarCuentasEnNumerosRojos(); //TERMINADO
                     break;
                 case 10:
                     db.obtenerTodosLosPropietarios();

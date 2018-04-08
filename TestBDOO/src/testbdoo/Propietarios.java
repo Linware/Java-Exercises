@@ -11,6 +11,18 @@ public class Propietarios {
      private String segundoApellido;
      private String numeroSecreto;
 
+    public Propietarios(String nombre, String primerApellido, String segundoApellido) {
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+    }
+
+    public Propietarios(String dni) {
+        this.dni = dni;
+    }
+
+     
+     
     public Propietarios(String dni, String usuario, String nombre, String primerApellido, String segundoApellido, String numeroSecreto) {
         this.dni = dni;
         this.usuario = usuario;
