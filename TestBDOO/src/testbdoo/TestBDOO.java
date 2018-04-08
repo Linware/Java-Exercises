@@ -46,6 +46,9 @@ public class TestBDOO {
         CuentasBancarias cuenta8=new CuentasBancarias("908904","67111736Z",346.34);
         CuentasBancarias cuenta9=new CuentasBancarias("123131","67854123F",1567.0);
         CuentasBancarias cuenta10=new CuentasBancarias("125436","85744736J",87995.12);
+        CuentasBancarias cuenta11=new CuentasBancarias("908904","67111736Z",-946.34);
+        CuentasBancarias cuenta12=new CuentasBancarias("123131","67854123F",-157.0);
+        CuentasBancarias cuenta13=new CuentasBancarias("125436","85744736J",-88.92);
         
         db.guardarCuenta(cuenta1);
         db.guardarCuenta(cuenta2);
@@ -57,6 +60,9 @@ public class TestBDOO {
         db.guardarCuenta(cuenta8);
         db.guardarCuenta(cuenta9);
         db.guardarCuenta(cuenta10);
+        db.guardarCuenta(cuenta11);
+        db.guardarCuenta(cuenta12);
+        db.guardarCuenta(cuenta13);
         
 
         Date date1=parseDate("2014-02-14");
@@ -75,8 +81,7 @@ public class TestBDOO {
         db.guardarHistorial(historial4);
                               
         //db.cerrar();
-       
-        
+           
        while(!salir){
             
            System.out.println("*********************************************************************");
@@ -95,6 +100,7 @@ public class TestBDOO {
            System.out.println("11. Obtener fecha-hora del último inicio de sesión de un usuario");
            System.out.println("12. Obtener ranking de las cuentas en números rojos");
            System.out.println("13. Obtener posición de una cuenta en el ranking de números rojos");     
+           System.out.println("14. Borrar base de datos");     
            System.out.println("---------------------------------------------------------------------");
            System.out.println("Escribe una de las opciones");
            
@@ -133,30 +139,49 @@ public class TestBDOO {
                     db.modificarDatosPropietario("Jon","Galvez","Murua"); //TERMINADO
                     break;
                 case 4:
+                    System.out.println("Cambiando número secreto...");
                     db.cambiarNumeroSecreto("67854736C"); //TERMINADO
                     break;
                 case 5:
+                     System.out.println("Eliminando cuenta...");
                     db.eliminarCuenta("447756", "67111736Z",3546.34); //TERMINADO
                     break;
                 case 6:
+                    System.out.println("Buscando cuenta por ID...");
                     db.obtenerCuentaPorId("012345"); //TERMINADO
                     break;
                 case 7:
+                    System.out.println("Mostrando cuentas...");
                     db.obtenerTodasLasCuentas();  //TERMINADO
                     break;
                 case 8:
+                    System.out.println("Insertando operacion...");
                     Date dateTest=parseDate("2013-12-14");
                     db.insertarOperacion(dateTest, "447756", 'I', 134.56); //TERMINADO
                     break;
                 case 9:
+                    System.out.println("Listando cuentas en numeros rojos...");
                     db.listarCuentasEnNumerosRojos(); //TERMINADO
                     break;
+
                 case 10:
-                    db.obtenerTodosLosPropietarios();
+                    System.out.println("Obteniendo operaciones por cuenta...");
+                    db.obtenerTodasOperacionesPorCuenta("856895"); //TERMINADO
+                    break;
+                case 11:
+                    System.out.println("Obteniendo fecha-hora ultimo inicio de sesión...");
+                    break;
+                case 12:
+                    System.out.println("Obteniendo ranking de numeros rojos...");
+                    break;
+                case 13:
+                    System.out.println("Obteniendo posicion de cuenta en el ranking de numeros rojos...");
+                    break;
+                case 14:
+                    System.out.println("Borrando todos los registros...");
+                    db.borrarTodo();
                     break;
 
-
-       
        }
             
        }

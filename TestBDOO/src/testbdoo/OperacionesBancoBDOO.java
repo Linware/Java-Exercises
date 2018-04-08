@@ -164,6 +164,46 @@ public class OperacionesBancoBDOO {
         }
 
         }
+    
+    public void obtenerTodasOperacionesPorCuenta(String cuenta){
+        ObjectSet result = db.queryByExample(Operaciones.class);
+        boolean existe=false;
+        while (result.hasNext()) {
+            Operaciones cuentatemporal= (Operaciones)result.next();
+            
+            if(cuentatemporal.getNumeroCuenta()==cuenta ){
+            System.out.println("Operacion encontrada: "+cuentatemporal);
+            existe=true;
+            }     
+        }
+        if (existe!=true){
+            System.out.println("Identificador NO VALIDO");
+        }
+    }
+    
+    public void borrarTodo(){
+        ObjectSet resultOperaciones = db.queryByExample(Operaciones.class);
+        
+        while (resultOperaciones.hasNext()) {
+            db.delete(resultOperaciones);
+        }
+        
+        ObjectSet resultPropietarios = db.queryByExample(Propietarios.class);
+        
+        while (resultPropietarios.hasNext()) {
+            db.delete(resultPropietarios);
+        }
+        ObjectSet resultHistorial = db.queryByExample(Historial.class);
+        
+        while (resultHistorial.hasNext()) {
+            db.delete(resultHistorial);
+        }
+        ObjectSet resultCuentasBancarias = db.queryByExample(CuentasBancarias.class);
+        
+        while (resultCuentasBancarias.hasNext()) {
+            db.delete(resultCuentasBancarias);
+        }
+    }
             
             
                     /*
