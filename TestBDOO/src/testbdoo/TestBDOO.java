@@ -86,6 +86,7 @@ public class TestBDOO {
             
            System.out.println("*********************************************************************");
            System.out.println("*********************************************************************");
+           System.out.println("Menu:");
            System.out.println("0. Ver todas las cuentas"); //
            System.out.println("1. Insertar cuenta nueva"); //
            System.out.println("2. Validar usuario y contraseña"); //
@@ -123,56 +124,60 @@ public class TestBDOO {
            
             switch(opcion){
                 case 0:
-                    System.out.println("Mostrando todas las cuentas"); //TERMINADO
+                    System.out.println("Mostrando todas las cuentas"); 
                     db.obtenerTodasLasCuentas();
                     break;
                 case 1:
-                    System.out.println("Insertando cuenta...");
-                    db.insertarCuenta(new CuentasBancarias("222222","67854736C",300.0)); //TERMINADO
+                    System.out.println("Cuenta insertada");
+                    db.insertarCuenta(new CuentasBancarias("222222","67854736C",300.0)); 
                     break;
                 case 2:
                     System.out.println("Validando usuario...");
-                    db.validarUsuario("BrianGoetzSaez","557845"); //TERMINADO
+                    db.validarUsuario("BrianGoetzSaez","557845"); 
                     break;
                 case 3:
                     System.out.println("Modificando datos de propietario...");
-                    db.modificarDatosPropietario("Jon","Galvez","Murua"); //TERMINADO
+                    db.modificarDatosPropietario("Jon","Galvez","Murua"); 
+                    System.out.println("Datos modificados");
                     break;
                 case 4:
                     System.out.println("Cambiando número secreto...");
-                    db.cambiarNumeroSecreto("67854736C"); //TERMINADO
+                    db.cambiarNumeroSecreto("67854736C"); 
+                    System.out.println("Numero cambiado");
                     break;
                 case 5:
                      System.out.println("Eliminando cuenta...");
-                    db.eliminarCuenta("447756", "67111736Z",3546.34); //TERMINADO
+                    db.eliminarCuenta("447756", "67111736Z",3546.34);
+                    System.out.println("Cuenta eliminada");
                     break;
                 case 6:
                     System.out.println("Buscando cuenta por ID...");
-                    db.obtenerCuentaPorId("012345"); //TERMINADO
+                    db.obtenerCuentaPorId("012345"); 
                     break;
                 case 7:
                     System.out.println("Mostrando cuentas...");
-                    db.obtenerTodasLasCuentas();  //TERMINADO
+                    db.obtenerTodasLasCuentas();  
                     break;
                 case 8:
                     System.out.println("Insertando operacion...");
                     Date dateTest=parseDate("2013-12-14");
-                    db.insertarOperacion(dateTest, "447756", 'I', 134.56); //TERMINADO
+                    System.out.println("Operacion insertada");
                     break;
                 case 9:
                     System.out.println("Listando cuentas en numeros rojos...");
-                    db.listarCuentasEnNumerosRojos(); //TERMINADO
+                    db.listarCuentasEnNumerosRojos(); 
                     break;
 
                 case 10:
                     System.out.println("Obteniendo operaciones por cuenta...");
-                    db.obtenerTodasOperacionesPorCuenta("856895"); //TERMINADO
+                    db.obtenerTodasOperacionesPorCuenta("125436"); 
                     break;
                 case 11:
                     System.out.println("Obteniendo fecha-hora ultimo inicio de sesión...");
                     break;
                 case 12:
                     System.out.println("Obteniendo ranking de numeros rojos...");
+                    db.rankingNumerosRojos();
                     break;
                 case 13:
                     System.out.println("Obteniendo posicion de cuenta en el ranking de numeros rojos...");

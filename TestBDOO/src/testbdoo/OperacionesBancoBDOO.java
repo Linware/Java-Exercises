@@ -10,6 +10,9 @@ import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -204,72 +207,22 @@ public class OperacionesBancoBDOO {
             db.delete(resultCuentasBancarias);
         }
     }
+    
+    public void rankingNumerosRojos(){
+        ObjectSet result = db.queryByExample(CuentasBancarias.class);
+        ArrayList<CuentasBancarias> arrayCuentas=new ArrayList<CuentasBancarias>();
+        while (result.hasNext()) {   
+            CuentasBancarias cuentatemporal= (CuentasBancarias)result.next();
+            
+            if(cuentatemporal.getSaldo()<0 ){
+            arrayCuentas.add(cuentatemporal);
+            }     
+        }
+        
+        System.out.println(arrayCuentas);
+    }
             
             
-                    /*
-c. Modificar los datos de un propietario existente (nombre, primer apellido, segundo apellido).
-d. Cambiar el número secreto de un propietario existente.
-e. Eliminar una cuenta bancaria. También eliminará el propietario asociado.
-    a. Obtener un objeto Operación Bancaria a partir de su ID.
-b. Obtener la lista de todas las Operaciones Bancarias.
-c. Insertar una operación bancaria a partir de un objeto de la clase Operación Bancaria definido adecuadamente según los campos que presenta. Una operación bancaria podrá ser un ingreso o extracción que realice un propietario sobre su cuenta bancaria.
-d. Obtener las operaciones bancarias que han generado números rojos.
-    e. Obtener todas las operaciones bancarias para una cuenta bancaria en concreto.
-    a. Insertar los eventos mediante sendos métodos.
-b. Obtener la fecha-hora del último inicio de sesión para un propietario en concreto.
-c. Obtener el ranking de las cuentas bancarias que están en números rojos (la que tiene una cantidad mayor primero).
-d. Obtener la posición dentro del ranking de una cuenta bancaria en concreto.
-    */
-
-/*
-    public void obtenerPilotos(Piloto p) {
-        ObjectSet result = db.queryByExample(p);
-        System.out.println(result.size());
-        while (result.hasNext()) {
-            System.out.println(result.next());
-        }
-    }
-
-    public void obtenerTodosLosPilotos() {
-        ObjectSet result = db.queryByExample(Piloto.class);
-        System.out.println(result.size());
-        while (result.hasNext()) {
-            System.out.println(result.next());
-        }
-
-    }
-
-    public void buscarPilotosPorNombre(String nombre) {
-        Piloto prototipo = new Piloto(nombre, 0);
-        ObjectSet result = db.queryByExample(prototipo);
-        System.out.println(result.size());
-        while (result.hasNext()) {
-            System.out.println(result.next());
-        }
-    }
-
-    public void buscarPilotosPorPuntos(int puntos) {
-        Piloto prototipo = new Piloto(null, puntos);
-        ObjectSet result = db.queryByExample(prototipo);
-        System.out.println(result.size());
-        while (result.hasNext()) {
-            System.out.println(result.next());
-        }
-    }
-
-
-    public void eliminarPiloto(String nombre, int puntos){
-        ObjectSet result = db.queryByExample(new Piloto(nombre, puntos));
-        System.out.println(result.size());
-        while (result.hasNext()) {
-            Piloto found = (Piloto) result.next();
-            //found.addPoints(11);
-            db.delete(found);
-            System.out.println("Objeto borrado " + found);
-        }
-        this.obtenerTodosLosPilotos();
-    }
-*/
     public static Date parseDate(String date) {
      try {
          return new SimpleDateFormat("yyyy-MM-dd").parse(date);

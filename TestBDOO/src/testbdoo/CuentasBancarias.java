@@ -13,6 +13,16 @@ public class CuentasBancarias {
         this.saldo = saldo;
     }
      
+    public int compareTo(CuentasBancarias o) {
+            if (saldo < o.saldo) {
+                return -1;
+            }
+            if (saldo > o.saldo) {
+                return 1;
+            }
+            return 0;
+        }
+    
     public String getNumeroCuenta() {
         return numeroCuenta;
     }
