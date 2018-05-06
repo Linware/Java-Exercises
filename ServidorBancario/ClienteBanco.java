@@ -30,10 +30,19 @@ public class ClienteBanco {
         	 
         	 if(!respuesta.equals("s")) {
         		 String[] arrayRespuestaFinal=respuesta.split(" ");
+        		 try {
         		 respuestaFinal.add(0, arrayRespuestaFinal[0]);
+        		 }catch(Exception e) {
+        			 System.out.println("Introduce un valor");
+        		 }
+        		 try {
         		 respuestaFinal.add(1, arrayRespuestaFinal[1]);
+        		 }catch(Exception e) {
+        			 System.out.println("No hay 2º valor");
+        		 }
         	 
         	 //Filtros ordenes
+        		 
         	 if (respuestaFinal.size()>=2 || !respuestaFinal.equals("s")) {respuestaFinal.add("k");}
         	 
         	 try {
@@ -62,6 +71,7 @@ public class ClienteBanco {
         	 case "f":
         		 System.out.println("Has seleccionado la opción \'CERRAR CONEXIÓN\'");
         		 salida=true;
+        		 System.exit(0);
         		 break;
         	default:
         		System.out.println("Comando NO valido,por favor, pruebe otra vez");

@@ -37,5 +37,11 @@ public class BancoImpl extends UnicastRemoteObject implements Banco  {
 	@Override
 	public void mostrarSaldo() throws RemoteException {
 		System.out.println("Su saldo actual es de: "+capitalTotal);
+	}
+
+	@Override
+	public void cerrarConexion() throws RemoteException {
+		 System.exit(0);
+		
 	} 
 }
