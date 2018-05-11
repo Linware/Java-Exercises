@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "name": "Museo G.",
+        "city": "Bilbao",
+        "url": "http://4learning.bymhost.com/Android/fotos/gug.jpg",
+        "lat": "43.268812",
+        "lon": "-2.934023",
+        "web": "https://es.wikipedia.org/wiki/Bilbao",
+        "video":"https://www.youtube.com/watch?v=8SpASXsPwl0"
+    },
+    {
+        "id": "2",
+        "name": "Torre Eif",
+        "city": "Paris",
+        "url": "http://4learning.bymhost.com/Android/fotos/eif.jpg",
+        "lat": "45.858451",
+        "lon": "2.294475",
+        "web": "https://es.wikipedia.org/wiki/Par%C3%ADs",
+        "video":"https://www.youtube.com/watch?v=yDn0J6h6KQg"
+    }
+]

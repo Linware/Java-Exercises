@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">EjemploDB</string>
+
+    <string name="main_title">LUGARES FAVORITOS</string>
+    <string name="place_add">Nuevo lugar</string>
+
+
+    <string name="place_title_edit">EDITAR LUGAR</string>
+    <string name="place_title_new">NUEVO LUGAR</string>
+
+    <string name="place_hint_name">Nombre del lugar</string>
+    <string name="place_hint_city">Ciudad</string>
+
+    <string name="place_save">Guardar</string>
+    <string name="place_del">Eliminar</string>
+    <string name="title_activity_mapas">Map</string>
+</resources>

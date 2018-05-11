@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_margin="@dimen/margin_l">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_main"
+            android:textSize="@dimen/text_size_m"
+             />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical"
+>
+
+        <ImageView
+            android:id="@+id/ivCoche"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/falcon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="36dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_oferta"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:layout_width="181dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="59dp"
+            android:gravity="right"
+            android:text="@string/txt_cantidad"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="59dp"
+            android:layout_marginEnd="33dp"
+            android:ems="10"
+            android:gravity="left"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="79dp"
+            android:text="Nombre:"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/editText2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_margin="@dimen/margin_l">
+        <Button
+            android:id="@+id/btnValidate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_main"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/margin_s"
+            android:textSize="@dimen/text_size_m"/>
+        <Button
+            android:id="@+id/Reservar"
+            style="@style/sty_button"
+            android:layout_margin="@dimen/margin_s"
+            android:text="@string/btnReservar"
+            android:textSize="@dimen/text_size_m"/>
+    </LinearLayout>
+
+
+</LinearLayout>
