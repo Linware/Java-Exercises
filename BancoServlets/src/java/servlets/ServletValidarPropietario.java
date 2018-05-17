@@ -43,13 +43,13 @@ public class ServletValidarPropietario extends HttpServlet {
             String usuario = request.getParameter("usuario");
             String numero_secreto = request.getParameter("numero_secreto");
             
-            List<Propietarios> l = (List<Propietarios>) bancoEJB.findPropietarioByUsuario(usuario);
-            for(int i=0; i<10;i++){
-                out.print("<br><b>Usuario: </b>" + 
-                        l.get(i).getUsuario()+ 
+            Propietarios l =  bancoEJB.findPropietarioByUsuario(usuario);
+            if(!l.getUsuario().equals(" ")){
+                out.print("<br><b>El usuario existe: </b><br><b>Usuario: </b>" + 
+                        l.getUsuario()+ 
                         ", <b>Número secreto: </b>" + 
-                        l.get(i).getNumeroSecreto());
-            }
+                        l.getNumeroSecreto());
+            }else{out.print("<br><b>El usuario NO existe </b>");}
             
             out.println("</body>");
             out.println("</html>");

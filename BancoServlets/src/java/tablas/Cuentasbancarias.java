@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Cuentasbancarias.findAll", query = "SELECT c FROM Cuentasbancarias c")
     , @NamedQuery(name = "Cuentasbancarias.findByNumeroCuenta", query = "SELECT c FROM Cuentasbancarias c WHERE c.numeroCuenta = :numeroCuenta")
-    , @NamedQuery(name = "Cuentasbancarias.findBySaldo", query = "SELECT c FROM Cuentasbancarias c WHERE c.saldo = :saldo")})
+    ,@NamedQuery(name = "Cuentasbancarias.sortSaldoNegativo", query = "SELECT c FROM Cuentasbancarias c WHERE c.saldo < 0 ORDER BY c.saldo ASC")
+    ,@NamedQuery(name = "Cuentasbancarias.findBySaldo", query = "SELECT c FROM Cuentasbancarias c WHERE c.saldo = :saldo")})
 public class Cuentasbancarias implements Serializable {
 
     private static final long serialVersionUID = 1L;

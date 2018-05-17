@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Operaciones.findByFechaHora", query = "SELECT o FROM Operaciones o WHERE o.fechaHora = :fechaHora")
     , @NamedQuery(name = "Operaciones.findByNumeroCuenta", query = "SELECT o FROM Operaciones o WHERE o.numeroCuenta = :numeroCuenta")
     , @NamedQuery(name = "Operaciones.findByTipoOperacion", query = "SELECT o FROM Operaciones o WHERE o.tipoOperacion = :tipoOperacion")
+    ,@NamedQuery(name = "Operaciones.findSaldoNegativo", query = "SELECT c FROM Operaciones c WHERE c.cantidad < 0 ")
     , @NamedQuery(name = "Operaciones.findByCantidad", query = "SELECT o FROM Operaciones o WHERE o.cantidad = :cantidad")})
 public class Operaciones implements Serializable {
 

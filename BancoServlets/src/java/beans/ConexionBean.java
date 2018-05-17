@@ -27,6 +27,14 @@ public class ConexionBean {
  return emf.createEntityManager().createNamedQuery("Operaciones.findAll").getResultList();
  }
  
+  public List findAllRankingNegativo(){
+ return emf.createEntityManager().createNamedQuery("Cuentasbancarias.sortSaldoNegativo").getResultList();
+ }
+ 
+         
+public List findSaldoNegativo(){
+ return emf.createEntityManager().createNamedQuery("Operaciones.findSaldoNegativo").getResultList();
+ }
   public Operaciones ObtenerOperacionPorID(int id){
         Query q = emf.createEntityManager().createNamedQuery("Operaciones.findByIdOperacion");
         q.setParameter("idOperacion", id);
@@ -53,7 +61,7 @@ public class ConexionBean {
     }
     
     public Propietarios findPropietarioByUsuario(String usuario) {
-        Query q = emf.createEntityManager().createNamedQuery("Propietarios.findPropietarioByUsuario");
+        Query q = emf.createEntityManager().createNamedQuery("Propietarios.findByUsuario");
         q.setParameter("usuario", usuario);
         List<Propietarios> result = q.getResultList();
         Iterator iter = result.iterator();

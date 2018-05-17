@@ -8,6 +8,7 @@ package servlets;
 import beans.ConexionBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,19 +16,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tablas.Cuentasbancarias;
-import tablas.Propietarios;
 
 /**
  *
  * @author Jonan
  */
-@WebServlet(name = "ServletInsertarCuenta", urlPatterns = {"/ServletInsertarCuenta"})
-public class ServletInsertarCuenta extends HttpServlet {
-    
+@WebServlet(name = "ServletPosicionRankingNegativos", urlPatterns = {"/ServletPosicionRankingNegativos"})
+public class ServletPosicionRankingNegativos extends HttpServlet {
+
     @EJB
     ConexionBean bancoEJB;
-    Cuentasbancarias cuenta=null;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,38 +38,24 @@ public class ServletInsertarCuenta extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        String datoHTML=request.getParameter("numero_cuenta");
+        List<Cuentasbancarias> o= bancoEJB.findAllRankingNegativo();
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletInsertarCuenta</title>");            
+            out.println("<title>Servlet ServletPosicionRankingNegativos</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletInsertarCuenta</h1>"); 
-            String numeroCuenta=request.getParameter("numeroCuenta");
-            String saldo=request.getParameter("saldo");
-            Propietarios propietario=new Propietarios(request.getParameter("propietario"));
-            
-            Double saldoDouble=Double.parseDouble(saldo);
-            
-            cuenta= new Cuentasbancarias(numeroCuenta, saldoDouble, propietario);
-            
-            if (bancoEJB.ServletInsertarCuenta(cuenta)) {
-                out.println("Cuenta dada de alta.");
-            } else {
-                out.println("Ya existe esa cuenta.");
-            }
             out.println("<body class='container'>");
-            out.println("<h1>Lista Operaciones Bancarias:</h1>");
-            out.print("<ul><li><b>Número de cuenta: </b>"+cuenta.getNumeroCuenta()+"</li><li><b>Saldo: </b>" +cuenta.getSaldo()
-            +"</li><li><b>Propietario: </b>" +cuenta.getPropietario()
-            +"</li><li><b>Tipo: </b>" +cuenta.getPropietario()+"</li></ul>");
-            out.println("<form action=\"index.jsp\" method=\"POST\">"
-                    + "Volver a la pagina inicial"
-                    + "<input type=\"submit\" name=\"volver\" value=\"Volver\" />"
-                    + "</form>");
+            out.println("<h1>Posicion de la Cuenta en el Ranking de Números Rojos:</h1>");
+            for(int i=0;i<o.size();i++){
+                Double test1=o.get(i).getSaldo();
+                String test2=o.get(i).getNumeroCuenta();
+            if(o.get(i).getSaldo()<0 && o.get(i).getNumeroCuenta().equals(datoHTML)){
+            out.print("<ul><li><b>Numero de cuenta: </b>"+o.get(i).getNumeroCuenta()+"</li><li><b>Propietario: </b>" +o.get(i).getPropietario()
+            +"</li><li><b>Saldo: </b>" +o.get(i).getSaldo()
+            +"</li></ul>");}};
             out.println("</body>");
             out.println("</html>");
         }

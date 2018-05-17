@@ -8,26 +8,24 @@ package servlets;
 import beans.ConexionBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import tablas.Cuentasbancarias;
-import tablas.Propietarios;
+import tablas.Operaciones;
 
 /**
  *
  * @author Jonan
  */
-@WebServlet(name = "ServletInsertarCuenta", urlPatterns = {"/ServletInsertarCuenta"})
-public class ServletInsertarCuenta extends HttpServlet {
-    
-    @EJB
-    ConexionBean bancoEJB;
-    Cuentasbancarias cuenta=null;
+@WebServlet(name = "ServletOperacionesNumerosRojos", urlPatterns = {"/ServletOperacionesNumerosRojos"})
+public class ServletOperacionesNumerosRojos extends HttpServlet {
 
+        @EJB
+        ConexionBean bancoEJB;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,38 +38,20 @@ public class ServletInsertarCuenta extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        List<Operaciones> o= bancoEJB.findSaldoNegativo();
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletInsertarCuenta</title>");            
+            out.println("<title>Servlet ServletObtenerListaOperacionesBancarias</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletInsertarCuenta</h1>"); 
-            String numeroCuenta=request.getParameter("numeroCuenta");
-            String saldo=request.getParameter("saldo");
-            Propietarios propietario=new Propietarios(request.getParameter("propietario"));
-            
-            Double saldoDouble=Double.parseDouble(saldo);
-            
-            cuenta= new Cuentasbancarias(numeroCuenta, saldoDouble, propietario);
-            
-            if (bancoEJB.ServletInsertarCuenta(cuenta)) {
-                out.println("Cuenta dada de alta.");
-            } else {
-                out.println("Ya existe esa cuenta.");
-            }
             out.println("<body class='container'>");
             out.println("<h1>Lista Operaciones Bancarias:</h1>");
-            out.print("<ul><li><b>Número de cuenta: </b>"+cuenta.getNumeroCuenta()+"</li><li><b>Saldo: </b>" +cuenta.getSaldo()
-            +"</li><li><b>Propietario: </b>" +cuenta.getPropietario()
-            +"</li><li><b>Tipo: </b>" +cuenta.getPropietario()+"</li></ul>");
-            out.println("<form action=\"index.jsp\" method=\"POST\">"
-                    + "Volver a la pagina inicial"
-                    + "<input type=\"submit\" name=\"volver\" value=\"Volver\" />"
-                    + "</form>");
+            for(int i=0;i<o.size();i++){
+            out.print("<ul><li><b>ID: </b>"+o.get(i).getIdOperacion()+"</li><li><b>Fecha: </b>" +o.get(i).getFechaHora()
+            +"</li><li><b>Cantidad: </b>" +o.get(i).getCantidad()
+            +"</li><li><b>Tipo: </b>" +o.get(i).getTipoOperacion()+"</li></ul>");};
             out.println("</body>");
             out.println("</html>");
         }

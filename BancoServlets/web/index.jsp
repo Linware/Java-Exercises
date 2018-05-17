@@ -32,14 +32,14 @@
             <input type="submit" name="enviar" value="Enviar"></form>
                 <form action="ServletInsertarOperacionBancaria" method="POST">Presiona el botón para insertar una operacion bancaria
             <input type="submit" name="ServletInsertarOperacionBancaria" value="Enviar"></form>
-        <form action="ServletObtenerNumerosrojos" method="POST">Presiona el botón para ver operaciones con numeros rojos
-            <input type="submit" name="ServletObtenerNumerosrojos" value="Enviar"></form>
+        <form action="ServletOperacionesNumerosRojos" method="POST">Presiona el botón para ver operaciones con numeros rojos
+            <input type="submit" name="ServletOperacionesNumerosRojos" value="Enviar"></form>
         <form action="ServletObtenerOperacionesPorCuenta" method="POST">Presiona el botón para ver todas las operaciones por cuenta
             <input type="submit" name="enviar" value="Enviar"></form>
         <h2>--------------------------------------------------------------------</h2>
-        <form action="ServletObtenerRankingNumerosRojos" method="POST">Presiona el botón para ver el ranking de números rojos
+        <form action="ServletRankingNumerosRojos" method="POST">Presiona el botón para ver el ranking de números rojos
             <input type="submit" name="enviar" value="Enviar"></form>
-        <form action="ServletObtenerPosicionNumerosRojos" method="POST">Presiona el botón para ver la posición de una cuenta en el ranking de números rojos
+        <form action="posicionRankingNegativos.html" method="POST">Presiona el botón para ver la posición de una cuenta en el ranking de números rojos
             <input type="submit" name="enviar" value="Enviar"></form>
         
     </body>

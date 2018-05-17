@@ -148,7 +148,7 @@ public class Propietarios implements Serializable {
 
     @Override
     public String toString() {
-        return "tablas.Propietarios[ dni=" + dni + " ]";
+        return usuario+"[ dni=" + dni + " ]";
     }
     
 }
