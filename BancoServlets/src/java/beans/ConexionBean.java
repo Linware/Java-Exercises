@@ -31,6 +31,23 @@ public class ConexionBean {
  return emf.createEntityManager().createNamedQuery("Cuentasbancarias.sortSaldoNegativo").getResultList();
  }
   
+  public Propietarios findByUsuario(String usuario){
+        Query q = emf.createEntityManager().createNamedQuery("Propietarios.findByUsuario");
+        q.setParameter("usuario", usuario);
+        List<Propietarios> result = q.getResultList();
+        Iterator iter = result.iterator();
+        Propietarios a = (Propietarios) iter.next();
+        EntityManager em = emf.createEntityManager();
+        Propietarios aux = em.find(Propietarios.class, a.getUsuario());
+        if (aux != null) {
+            aux.setNumeroSecreto(a.getNumeroSecreto());
+            em.persist(aux);
+            em.close();
+        }
+        
+        return a;
+ }
+  
   public List<Operaciones> findByNumeroCuenta(String numeroCuenta){
         Query q = emf.createEntityManager().createNamedQuery("Operaciones.findByNumeroCuenta");
         q.setParameter("numeroCuenta", numeroCuenta);
