@@ -34,7 +34,7 @@
             <input type="submit" name="ServletInsertarOperacionBancaria" value="Enviar"></form>
         <form action="ServletOperacionesNumerosRojos" method="POST">Presiona el botón para ver operaciones con numeros rojos
             <input type="submit" name="ServletOperacionesNumerosRojos" value="Enviar"></form>
-        <form action="ServletObtenerOperacionesPorCuenta" method="POST">Presiona el botón para ver todas las operaciones por cuenta
+        <form action="operacionesBancariasCuentaConcreto.html" method="POST">Presiona el botón para ver todas las operaciones de una cuenta en concreto
             <input type="submit" name="enviar" value="Enviar"></form>
         <h2>--------------------------------------------------------------------</h2>
         <form action="ServletRankingNumerosRojos" method="POST">Presiona el botón para ver el ranking de números rojos

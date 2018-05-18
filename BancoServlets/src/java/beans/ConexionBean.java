@@ -30,6 +30,16 @@ public class ConexionBean {
   public List findAllRankingNegativo(){
  return emf.createEntityManager().createNamedQuery("Cuentasbancarias.sortSaldoNegativo").getResultList();
  }
+  
+  public List<Operaciones> findByNumeroCuenta(String numeroCuenta){
+        Query q = emf.createEntityManager().createNamedQuery("Operaciones.findByNumeroCuenta");
+        q.setParameter("numeroCuenta", numeroCuenta);
+        List<Operaciones> result = q.getResultList();
+        //Iterator iter = result.iterator();
+        //Operaciones a = (Operaciones) iter.next();
+        
+        return result;
+ }
  
          
 public List findSaldoNegativo(){
@@ -60,12 +70,14 @@ public List findSaldoNegativo(){
         return encontrado != null;
     }
     
-    public Propietarios findPropietarioByUsuario(String usuario) {
-        Query q = emf.createEntityManager().createNamedQuery("Propietarios.findByUsuario");
+    public Propietarios findPropietarioByUsuario(String usuario,String numeroSecreto) {
+        Query q = emf.createEntityManager().createNamedQuery("Propietarios.ValidarUsuario");
         q.setParameter("usuario", usuario);
+        q.setParameter("numeroSecreto",numeroSecreto);
         List<Propietarios> result = q.getResultList();
         Iterator iter = result.iterator();
         Propietarios a = (Propietarios) iter.next();
+        
         return a;
     }
 }

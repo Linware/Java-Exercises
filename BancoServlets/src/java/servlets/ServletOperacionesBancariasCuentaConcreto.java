@@ -15,45 +15,60 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import tablas.Propietarios;
+import tablas.Cuentasbancarias;
+import tablas.Operaciones;
 
 /**
  *
  * @author Jonan
  */
-@WebServlet(name = "ServletValidarPropietario", urlPatterns = {"/ServletValidarPropietario"})
-public class ServletValidarPropietario extends HttpServlet {
+@WebServlet(name = "ServletOperacionesBancariasCuentaConcreto", urlPatterns = {"/ServletOperacionesBancariasCuentaConcreto"})
+public class ServletOperacionesBancariasCuentaConcreto extends HttpServlet {
     
     @EJB
     ConexionBean bancoEJB;
 
- protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Propietarios l=null;
+        String numeroCuenta=request.getParameter("numeroCuenta");
+        List<Operaciones> l=null;
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>ServletValidarPropietario</title>");            
+            out.println("<title>Servlet ServletOperacionesBancariasCuentaConcreto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Resultado de la busqueda</h1>");
-            
-             // Recogemos los datos del formulario
-            String usuario = request.getParameter("usuario");
-            String numero_secreto = request.getParameter("numero_secreto");
             try{
-            l =  bancoEJB.findPropietarioByUsuario(usuario,numero_secreto);
+            l=  bancoEJB.findByNumeroCuenta(numeroCuenta);
             }catch(Exception e){
-                out.print("<br><b>El usuario NO existe </b>");
+                out.print("<br><b>La cuenta NO tiene operaciones </b>");
             }
-            if(!l.getUsuario().equals(" ")){
-                out.print("<br><b>El usuario existe: </b><br><b>Usuario: </b>" + 
-                        l.getUsuario()+ 
-                        ", <b>Número secreto: </b>" + 
-                        l.getNumeroSecreto());
-            }else{out.print("<br><b>El usuario NO existe </b>");}
+            try{
+            for(int i=0;i<l.size();i++){
+            if(!l.get(i).getIdOperacion().equals(" ")){
+                out.print("<br><b>ID: </b>"+l.get(i).getIdOperacion()+ "<br><b>Tipo de operación: </b>" + 
+                        l.get(i).getTipoOperacion()+ 
+                        ", <br><b>Cantidad: </b>" + 
+                        l.get(i).getCantidad()+ "<br><b>Fecha: </b>" + 
+                        l.get(i).getFechaHora()+ "<br><b>Número de cuenta: </b>" + 
+                        l.get(i).getNumeroCuenta());
+            }else{out.print("<br><b>La cuenta NO tiene operaciones </b>");}
+            }}catch(Exception e){
+                out.print("<br><b>La cuenta NO tiene operaciones </b>");
+            }
+            if(l.size()==0){out.print("<br><b>La cuenta NO tiene operaciones </b>");}
             
             out.println("</body>");
             out.println("</html>");
@@ -98,4 +113,5 @@ public class ServletValidarPropietario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }
