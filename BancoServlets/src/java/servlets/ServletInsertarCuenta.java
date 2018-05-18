@@ -68,9 +68,9 @@ public class ServletInsertarCuenta extends HttpServlet {
             out.print("<ul><li><b>Número de cuenta: </b>"+cuenta.getNumeroCuenta()+"</li><li><b>Saldo: </b>" +cuenta.getSaldo()
             +"</li><li><b>Propietario: </b>" +cuenta.getPropietario()
             +"</li><li><b>Tipo: </b>" +cuenta.getPropietario()+"</li></ul>");
-            out.println("<form action=\"index.jsp\" method=\"POST\">"
-                    + "Volver a la pagina inicial"
-                    + "<input type=\"submit\" name=\"volver\" value=\"Volver\" />"
+             out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
                     + "</form>");
             out.println("</body>");
             out.println("</html>");

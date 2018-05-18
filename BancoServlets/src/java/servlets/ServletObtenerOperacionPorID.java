@@ -52,6 +52,10 @@ public class ServletObtenerOperacionPorID extends HttpServlet {
             out.print("<ul><li><b>ID: </b>"+o.getIdOperacion()+"</li><li><b>Fecha: </b>" +o.getFechaHora()
             +"</li><li><b>Cantidad: </b>" +o.getCantidad()
             +"</li><li><b>Tipo: </b>" +o.getTipoOperacion()+"</li></ul>");
+            out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
+                    + "</form>");
             out.println("</body>");
             out.println("</html>");
         }

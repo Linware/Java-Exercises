@@ -69,6 +69,10 @@ public class ServletOperacionesBancariasCuentaConcreto extends HttpServlet {
                 out.print("<br><b>La cuenta NO tiene operaciones </b>");
             }
             if(l.size()==0){out.print("<br><b>La cuenta NO tiene operaciones </b>");}
+            out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
+                    + "</form>");
             
             out.println("</body>");
             out.println("</html>");

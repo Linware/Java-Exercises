@@ -48,6 +48,10 @@ public class ServletObtenerListaOperacionesBancarias extends HttpServlet {
             out.print("<ul><li><b>ID: </b>"+o.get(i).getIdOperacion()+"</li><li><b>Fecha: </b>" +o.get(i).getFechaHora()
             +"</li><li><b>Cantidad: </b>" +o.get(i).getCantidad()
             +"</li><li><b>Tipo: </b>" +o.get(i).getTipoOperacion()+"</li></ul>");};
+            out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
+                    + "</form>");
             out.println("</body>");
             out.println("</html>");
         }

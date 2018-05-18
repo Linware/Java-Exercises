@@ -54,6 +54,10 @@ public class ServletRankingNumerosRojos extends HttpServlet {
             out.print("<ul><li><b>Numero de cuenta: </b>"+o.get(i).getNumeroCuenta()+"</li><li><b>Propietario: </b>" +o.get(i).getPropietario()
             +"</li><li><b>Saldo: </b>" +o.get(i).getSaldo()
             +"</li></ul>");}};
+            out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
+                    + "</form>");
             out.println("</body>");
             out.println("</html>");
         }

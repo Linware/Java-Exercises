@@ -54,6 +54,10 @@ public class ServletValidarPropietario extends HttpServlet {
                         ", <b>Número secreto: </b>" + 
                         l.getNumeroSecreto());
             }else{out.print("<br><b>El usuario NO existe </b>");}
+            out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
+                    + "</form>");
             
             out.println("</body>");
             out.println("</html>");

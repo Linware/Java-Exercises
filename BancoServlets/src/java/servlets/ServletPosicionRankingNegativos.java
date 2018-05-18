@@ -39,6 +39,7 @@ public class ServletPosicionRankingNegativos extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String datoHTML=request.getParameter("numero_cuenta");
+        int contador=0;
         List<Cuentasbancarias> o= bancoEJB.findAllRankingNegativo();
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -50,12 +51,18 @@ public class ServletPosicionRankingNegativos extends HttpServlet {
             out.println("<body class='container'>");
             out.println("<h1>Posicion de la Cuenta en el Ranking de Números Rojos:</h1>");
             for(int i=0;i<o.size();i++){
+                contador++;
                 Double test1=o.get(i).getSaldo();
                 String test2=o.get(i).getNumeroCuenta();
             if(o.get(i).getSaldo()<0 && o.get(i).getNumeroCuenta().equals(datoHTML)){
             out.print("<ul><li><b>Numero de cuenta: </b>"+o.get(i).getNumeroCuenta()+"</li><li><b>Propietario: </b>" +o.get(i).getPropietario()
             +"</li><li><b>Saldo: </b>" +o.get(i).getSaldo()
+            +"</li></ul><li><b>Posición en el ranking: </b>" +contador
             +"</li></ul>");}};
+            out.println("<br>");
+                        out.println("<form action=\"index.jsp\" method=\"POST\">"
+                    + "<input type=\"submit\" name=\"volver\" value=\"Volver a la pagina inicial\" />"
+                    + "</form>");
             out.println("</body>");
             out.println("</html>");
         }
